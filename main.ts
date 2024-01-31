@@ -1,10 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
     let szamok: number[] = [];
     let hozzaad = document.getElementById('hozzaad') as HTMLInputElement;
+    let min = document.getElementById('minimum') as HTMLInputElement;
     hozzaad.addEventListener("click", () => {
         let szam = parseInt((document.getElementById('szam')  as HTMLInputElement).value); 
         szamok.push(szam);
     })
+    /*
+    function Kiiras(() => {
+
+    })
+    */
     let div = document.getElementById('szamok') as HTMLElement;
     let p = document.createElement("p");
     let szoveg = "";
@@ -13,4 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     p.textContent = szoveg;
     div.appendChild(p);
+
+    /*
+        function Kiiras(() => {
+
+    })*/
+    min.addEventListener("click", () => {
+        let min = 9999999999999999999999;
+        let div = document.getElementById('szamok') as HTMLElement;
+        let p = document.createElement("p");
+        szamok.forEach(element => {
+            if(element > min){
+                min = element;
+            }
+        })
+        p.textContent = `A legnagyobb szám: ` + min;
+        div.appendChild(p);
+    })
+
+    
 })    
