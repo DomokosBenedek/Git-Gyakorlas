@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let szamok: number[] = [];
     let hozzaad = document.getElementById('hozzaad') as HTMLInputElement;
+    let max = document.getElementById('maximum') as HTMLInputElement;
     let min = document.getElementById('minimum') as HTMLInputElement;
     hozzaad.addEventListener("click", () => {
         let szam = parseInt((document.getElementById('szam')  as HTMLInputElement).value); 
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     })*/
     min.addEventListener("click", () => {
-        let min = 9999999999999999999999;
+        let min = 9999999999999999999;
         let div = document.getElementById('szamok') as HTMLElement;
         let p = document.createElement("p");
         szamok.forEach(element => {
@@ -33,9 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 min = element;
             }
         })
-        p.textContent = `A legnagyobb szám: ` + min;
+        p.textContent = `A legkisebb szám: ` + min;
         div.appendChild(p);
     })
 
+    max.addEventListener("click", () => {
+        let max = 0;
+        let div = document.getElementById('szamok') as HTMLElement;
+        let p = document.createElement("p");
+        szamok.forEach(element => {
+            if(element < max){
+                max = element;
+            }
+        })
+        p.textContent = `A legnagyobb szám: ` + max;
+        div.appendChild(p);
+    })
     
 })    
