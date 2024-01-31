@@ -5,4 +5,5 @@ document.addEventListener("DOMContentLoaded", () => {
         let szam = parseInt((document.getElementById('szam')  as HTMLInputElement).value); 
         szamok.push(szam);
     })
+    
 })    
